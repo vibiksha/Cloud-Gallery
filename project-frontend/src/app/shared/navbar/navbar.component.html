@@ -1,0 +1,48 @@
+<!-- navbar.component.html -->
+<div class="h-16 shadow-md flex flex-row-reverse">
+  <div class="w-12 flex items-center justify-center" (click)="toggleUserModal()">
+    <i class="fa-solid fa-user fa-beat-fade"></i>
+  </div>
+  <div class="w-12 flex items-center justify-center" (click)="togglePlusModal()">
+    <i class="fa-solid fa-plus fa-lg"></i>
+  </div>
+</div>
+
+<!-- Add the user modal here -->
+<div *ngIf="showUserModal" class="fixed top-20 right-4 z-50 bg-white rounded shadow-lg p-4 max-w-xs">
+  <div class="flex flex-col">
+    <div class="flex flex-row"(click)="toggleUserModal()">
+      <button class="close-button mb-4 pr-2" >
+        <i class="far fa-times-circle fa-lg"></i>
+      </button>
+      <span class="mb-4">Close</span>
+    </div>
+    <div class="flex flex-row"(click)="logout()">
+      <button class="logout-button mb-2 pr-2">
+        <i class="fas fa-sign-out-alt fa-lg"></i>
+      </button>
+      <span>Logout</span>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showAddImageModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-75">
+  <div class="relative">
+    <div class="absolute top-0 right-0 p-2">
+      <i class="fa-solid fa-times text-red-500 text-lg cursor-pointer" (click)="cancelAddImageModal()"></i>
+    </div>
+    <div class="modal-content bg-white rounded p-6">
+      <form class="container mx-auto max-w-md border bg-white shadow-lg rounded px-8 py-6" (submit)="onUpload($event)">
+        <div class="mb-4">
+          <label for="uploadImage" class="block text-gray-700 font-bold mb-2">Upload Image:</label>
+          <input type="file" id="uploadImage" required class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" (change)="file($event)">
+        </div>
+        <div class="flex justify-center">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add Image
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

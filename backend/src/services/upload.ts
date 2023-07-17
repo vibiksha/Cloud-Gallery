@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import AWS from 'aws-sdk';
 import * as uploadDao from '../dao/upload.dao';
-import { AWSConfigAttributes } from '../constants/env.constants';
+import { AWSConfigAttributes, BUCKET_NAME } from '../constants/env.constants';
 import { decodeJwtTokenFromHeaders } from './decodeToken';
 
 export const handleFileUpload = async (req: Request, res: Response) => {
   const fileName = req.body.fileName;
   const config = {
-    bucketName: 'aws-image-gallery-project',
+    bucketName: BUCKET_NAME,
     region: AWSConfigAttributes.REGION,
     accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
     secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,

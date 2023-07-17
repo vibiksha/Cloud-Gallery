@@ -20,18 +20,25 @@ const deleteObject = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const fileName = req.body.fileName;
     console.log(fileName);
     try {
-        const s3 = new aws_sdk_1.default.S3();
+        const s3 = new aws_sdk_1.default.S3({
+            credentials: {
+                accessKeyId: "AKIAUXS5YJ6EDXWQ2QKB",
+                secretAccessKey: "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",
+            },
+            region: "us-east-1",
+        });
         const params = {
             Bucket: env_constants_1.BUCKET_NAME,
-            Key: fileName
+            Key: fileName,
         };
+        console.log(params);
         yield s3.deleteObject(params).promise();
         yield (0, delete_dao_1.deleteFromDatabase)(fileName);
-        res.status(200).json({ message: 'Object deleted successfully' });
+        res.status(200).json({ message: "Object deleted successfully" });
     }
     catch (error) {
-        console.error('Error deleting object:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        console.error("Error deleting object:", error);
+        res.status(500).json({ error });
     }
 });
 exports.deleteObject = deleteObject;

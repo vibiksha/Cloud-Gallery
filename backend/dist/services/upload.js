@@ -43,7 +43,7 @@ const decodeToken_1 = require("./decodeToken");
 const handleFileUpload = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const fileName = req.body.fileName;
     const config = {
-        bucketName: 'aws-image-gallery-project',
+        bucketName: env_constants_1.BUCKET_NAME,
         region: env_constants_1.AWSConfigAttributes.REGION,
         accessKeyId: env_constants_1.AWSConfigAttributes.ACCESS_KEY_ID,
         secretAccessKey: env_constants_1.AWSConfigAttributes.SECRET_ACCESS_KEY,

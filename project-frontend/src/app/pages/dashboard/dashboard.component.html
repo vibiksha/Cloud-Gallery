@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="grid grid-cols-1 justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+  <div *ngFor="let key of keys" class="p-6 border rounded-lg shadow-md">
+    <img [src]="key" alt="Image" class="w-full h-60">
+    <div class="flex justify-center mt-4">
+      <button class="bg-white border border-gray-400 text-gray-600 px-4 py-1 rounded  hover:bg-gray-100 mr-2" (click)="deleteImage(key)">
+        <i class="fas fa-trash-alt mr-1"></i> Delete
+      </button>
+      <button class="bg-white border border-gray-400 text-gray-600 px-4 py-1 rounded   hover:bg-gray-100" (click)="downloadImage(key)">
+        <i class="fas fa-download mr-1"></i> Download
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
