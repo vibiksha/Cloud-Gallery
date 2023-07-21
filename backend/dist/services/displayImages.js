@@ -29,7 +29,7 @@ const displayImages = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             attributes: ['key'],
         });
         const extractedKeys = keys.map((image) => image.key);
-        res.json(extractedKeys); // Send the extractedKeys array directly in the response
+        res.json(extractedKeys);
     }
     catch (error) {
         console.error('Error retrieving keys:', error);

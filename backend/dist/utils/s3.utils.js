@@ -7,20 +7,10 @@ exports.generatePresignedUrl = void 0;
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const env_constants_1 = require("../constants/env.constants");
 const generatePresignedUrl = (fileName) => {
-    const config = {
-        bucketName: 'aws-image-gallery-project',
-        region: env_constants_1.AWSConfigAttributes.REGION,
-        accessKeyId: env_constants_1.AWSConfigAttributes.ACCESS_KEY_ID,
-        secretAccessKey: env_constants_1.AWSConfigAttributes.SECRET_ACCESS_KEY,
-    };
-    const s3 = new aws_sdk_1.default.S3({
-        accessKeyId: config.accessKeyId,
-        secretAccessKey: config.secretAccessKey,
-        region: config.region,
-    });
+    const s3 = new aws_sdk_1.default.S3();
     const bucketKey = `${Date.now()}-${fileName}`;
     const params = {
-        Bucket: config.bucketName,
+        Bucket: env_constants_1.BUCKET_NAME,
         Key: bucketKey,
         ContentType: 'image/jpeg',
         ACL: 'private',

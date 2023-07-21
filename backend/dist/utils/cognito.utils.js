@@ -15,11 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.setUserPassword = exports.createCognitoUser = void 0;
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const env_constants_1 = require("../constants/env.constants");
-// AWS.config.update({
-//   region: AWSConfigAttributes.REGION,
-//   accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
-//   secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
-// });
 const cognito = new aws_sdk_1.default.CognitoIdentityServiceProvider();
 const createCognitoUser = (username, email, phoneNumber, password, uid) => __awaiter(void 0, void 0, void 0, function* () {
     const params = {
