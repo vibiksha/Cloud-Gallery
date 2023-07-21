@@ -1,7 +1,7 @@
 export const AWSConfigAttributes={
     REGION: 'us-east-1',
-  ACCESS_KEY_ID: 'AKIAUXS5YJ6EDXWQ2QKB',
-  SECRET_ACCESS_KEY: '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'
+  ACCESS_KEY_ID: '',
+  SECRET_ACCESS_KEY: ''
 }
 
 export const USER_POOL_ID="us-east-1_s7CCArMAv"
