@@ -24,7 +24,7 @@ export const displayImages = async (req: Request, res: Response) => {
 
     const extractedKeys = keys.map((image) => image.key);
 
-    res.json(extractedKeys); // Send the extractedKeys array directly in the response
+    res.json(extractedKeys); 
   } catch (error) {
     console.error('Error retrieving keys:', error);
     res.status(500).json({ error: 'Failed to retrieve keys' });

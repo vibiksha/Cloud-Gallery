@@ -1,12 +1,7 @@
 import AWS from 'aws-sdk';
-import { AWSConfigAttributes, USER_POOL_ID } from '../constants/env.constants';
+import {  USER_POOL_ID } from '../constants/env.constants';
 import { AuthenticationDetails, CognitoUser, CognitoUserPool, CognitoUserSession } from 'amazon-cognito-identity-js';
 
-AWS.config.update({
-  region: AWSConfigAttributes.REGION,
-  accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
-  secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
-});
 
 const cognito = new AWS.CognitoIdentityServiceProvider();
 

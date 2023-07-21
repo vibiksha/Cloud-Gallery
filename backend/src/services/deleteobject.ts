@@ -7,13 +7,7 @@ export const deleteObject = async (req: Request, res: Response) => {
   const fileName = req.body.fileName;
   console.log(fileName);
   try {
-    const s3 = new AWS.S3({
-      credentials: {
-        accessKeyId: "AKIAUXS5YJ6EDXWQ2QKB",
-        secretAccessKey: "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",
-      },
-      region: "us-east-1",
-    });
+    const s3 = new AWS.S3();
     const params = {
       Bucket: BUCKET_NAME,
       Key: fileName,

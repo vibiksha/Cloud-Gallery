@@ -1,25 +1,16 @@
 import { Request, Response } from 'express';
 import AWS from 'aws-sdk';
 import * as uploadDao from '../dao/upload.dao';
-import { AWSConfigAttributes, BUCKET_NAME } from '../constants/env.constants';
+import {  BUCKET_NAME } from '../constants/env.constants';
 import { decodeJwtTokenFromHeaders } from './decodeToken';
 
 export const handleFileUpload = async (req: Request, res: Response) => {
   const fileName = req.body.fileName;
-  const config = {
-    bucketName: BUCKET_NAME,
-    region: AWSConfigAttributes.REGION,
-    accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
-    secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
-  };
 
-  const s3 = new AWS.S3({
-    accessKeyId: config.accessKeyId,
-    secretAccessKey: config.secretAccessKey,
-    region: config.region,
-  });
+
+  const s3 = new AWS.S3();
   const params = {
-    Bucket: config.bucketName,
+    Bucket: BUCKET_NAME,
     Key: `${Date.now()}-${fileName}`,
     ContentType: 'image/jpeg',
     ACL: 'private',

@@ -16,11 +16,11 @@ exports.downloadObject = void 0;
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const env_constants_1 = require("../constants/env.constants");
 const downloadObject = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    aws_sdk_1.default.config.update({
-        region: env_constants_1.AWSConfigAttributes.REGION,
-        accessKeyId: env_constants_1.AWSConfigAttributes.ACCESS_KEY_ID,
-        secretAccessKey: env_constants_1.AWSConfigAttributes.SECRET_ACCESS_KEY,
-    });
+    // AWS.config.update({
+    //     region: AWSConfigAttributes.REGION,
+    //     accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
+    //     secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
+    //   });
     const s3 = new aws_sdk_1.default.S3();
     const params = { Bucket: env_constants_1.BUCKET_NAME, Key: req.body.key };
     s3.getObject(params, (err, data) => {

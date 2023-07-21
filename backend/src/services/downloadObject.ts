@@ -1,13 +1,8 @@
 import { Request, Response } from 'express';
 import AWS from 'aws-sdk';
-import * as uploadDao from '../dao/upload.dao';
-import { AWSConfigAttributes, BUCKET_NAME } from '../constants/env.constants';
+import {  BUCKET_NAME } from '../constants/env.constants';
 export const downloadObject = async (req: Request, res: Response) => {
-    AWS.config.update({
-        region: AWSConfigAttributes.REGION,
-        accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
-        secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
-      });
+
       
       const s3 = new AWS.S3();
   

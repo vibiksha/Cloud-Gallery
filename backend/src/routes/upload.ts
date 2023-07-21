@@ -1,5 +1,4 @@
 import express, { Router } from 'express';
-import multer from 'multer';
 import { handleFileUpload } from '../services/upload';
 
 const router: Router = express.Router();

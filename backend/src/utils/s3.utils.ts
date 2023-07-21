@@ -1,22 +1,13 @@
 import AWS from 'aws-sdk';
-import { AWSConfigAttributes } from '../constants/env.constants';
+import { BUCKET_NAME } from '../constants/env.constants';
 
 export const generatePresignedUrl = (fileName: string): Promise<{ preSignedUrl: string; bucketKey: string }> => {
-  const config = {
-    bucketName: 'aws-image-gallery-project',
-    region: AWSConfigAttributes.REGION,
-    accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
-    secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
-  };
-  const s3 = new AWS.S3({
-    accessKeyId: config.accessKeyId,
-    secretAccessKey: config.secretAccessKey,
-    region: config.region,
-  });
+
+  const s3 = new AWS.S3();
 
   const bucketKey = `${Date.now()}-${fileName}`;
   const params = {
-    Bucket: config.bucketName,
+    Bucket:  BUCKET_NAME,
     Key: bucketKey,
     ContentType: 'image/jpeg',
     ACL: 'private',

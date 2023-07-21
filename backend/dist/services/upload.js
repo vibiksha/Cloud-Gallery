@@ -42,19 +42,15 @@ const env_constants_1 = require("../constants/env.constants");
 const decodeToken_1 = require("./decodeToken");
 const handleFileUpload = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const fileName = req.body.fileName;
-    const config = {
-        bucketName: env_constants_1.BUCKET_NAME,
-        region: env_constants_1.AWSConfigAttributes.REGION,
-        accessKeyId: env_constants_1.AWSConfigAttributes.ACCESS_KEY_ID,
-        secretAccessKey: env_constants_1.AWSConfigAttributes.SECRET_ACCESS_KEY,
-    };
-    const s3 = new aws_sdk_1.default.S3({
-        accessKeyId: config.accessKeyId,
-        secretAccessKey: config.secretAccessKey,
-        region: config.region,
-    });
+    // const config = {
+    //   bucketName: BUCKET_NAME,
+    //   region: AWSConfigAttributes.REGION,
+    //   accessKeyId: AWSConfigAttributes.ACCESS_KEY_ID,
+    //   secretAccessKey: AWSConfigAttributes.SECRET_ACCESS_KEY,
+    // };
+    const s3 = new aws_sdk_1.default.S3();
     const params = {
-        Bucket: config.bucketName,
+        Bucket: env_constants_1.BUCKET_NAME,
         Key: `${Date.now()}-${fileName}`,
         ContentType: 'image/jpeg',
         ACL: 'private',
