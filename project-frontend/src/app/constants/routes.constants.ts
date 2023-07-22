@@ -1,4 +1,4 @@
-export const BASE_ROUTE = "http://localhost:3000";
+export const BASE_ROUTE = "http://44.209.159.78:3000";
 
 export const BACKEND_ROUTES = {
   SIGNUP: BASE_ROUTE + "/auth/signup",
