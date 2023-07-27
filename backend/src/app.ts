@@ -28,7 +28,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-
+app.options('*',cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.get('/', (req, res) => {

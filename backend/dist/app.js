@@ -26,6 +26,7 @@ app.use((req, res, next) => {
     }
     next();
 });
+app.options('*', (0, cors_1.default)());
 app.use((0, body_parser_1.json)());
 app.use((0, body_parser_1.urlencoded)({ extended: true }));
 app.get('/', (req, res) => {
