@@ -15,7 +15,7 @@ const display_1 = require("./routes/display");
 const delete_1 = require("./routes/delete");
 const download_1 = require("./routes/download");
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://d32ws6unwjablm.cloudfront.net');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
