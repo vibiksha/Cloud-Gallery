@@ -3,6 +3,8 @@ import {  USER_POOL_ID } from '../constants/env.constants';
 import { AuthenticationDetails, CognitoUser, CognitoUserPool, CognitoUserSession } from 'amazon-cognito-identity-js';
 
 
+AWS.config.update({ region: 'us-east-1' });
+
 const cognito = new AWS.CognitoIdentityServiceProvider();
 
 export const createCognitoUser = async (

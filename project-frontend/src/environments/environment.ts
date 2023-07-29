@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  userPoolId: 'us-east-1_s7CCArMAv',
-  userPoolClientId: '954c8v1tc0k8n64c13urcpf1c',
-  cloudfrontURL:'https://d2cidzah5b0ueq.cloudfront.net/'
+  userPoolId: 'us-east-1_fd0HwuGd7',
+  userPoolClientId: '64bf9lj1rn7vsk0b82jur69ea5',
+  cloudfrontURL:'https://d3ovln60flkg07.cloudfront.net/'
 }
 /*
  * For easier debugging in development mode, you can import the following file
