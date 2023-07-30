@@ -1,4 +1,4 @@
-export const BASE_ROUTE = "http://image-gallery-alb-481178048.us-east-1.elb.amazonaws.com:3000";
+export const BASE_ROUTE = "https://d1e00xe9svhrqw.cloudfront.net";
 
 export const BACKEND_ROUTES = {
   SIGNUP: BASE_ROUTE + "/auth/signup",
